@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html >
+  <head>
+    <meta charset="UTF-8">
+    <title>login</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/styles.css">
+    
+    <link rel="stylesheet prefetch" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet prefetch" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.1.0/css/font-awesome.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="http://www.parsecdn.com/js/parse-latest.js"></script>
+  </head>
+
+  <body>
+  	
+<form id="login">
+	
+	<div id="registration_form">
+		  <div id="star_div">
+    <div id="header">
+       <h1> <img src="css/college20.png" />
+            
+            <div style="padding:20px;margin-top:0px;background-color:rgb(192,192,192);opacity:0.8; " >
+            	<p>
+	
+ <h1  style="font-size:70%;"> Username: 
+  <input type="text" name="username" id="username" >
+  </h1>
+ <h1 style="font-size:70%;"> Password:
+  <input type="password" name="userPassword" id="userPassword">
+  </h1>
+  
+  
+   
+  
+  <input type="submit" id="submit" value="Login" />
+  
+  
+  
+  
+</p>
+            <img src="css/signup.jpg" width="100%px" height="80%px" />
+             
+          </div> 
+       
+    </div>
+    <ul>
+  <li><a class="active" href="#home">Home</a></li>
+  <li><a href="#news">News</a></li>
+  <li><a href="#contact">Contact</a></li>
+  <li><a href="#about">About</a></li>
+  <li><a href="signup.html">Signup</a></li>
+</ul>
+
+
+	
+
+</div>
+</form>
+      
+  <script type="text/javascript">
+      Parse.initialize("cdXWmRMN08TPZQ07fZHQNUrRiAbb1H1dFYwta2g4", "wRBprZzJudCND2SvmW4DF3eemFJawErwTq65HbV6");
+      
+      //$("#loginin").submit(function(event){
+
+
+      /***** Login*********/
+      $("#login").submit(function(event){
+      event.preventDefault();
+
+      /***** LOG IN *********/
+      var login_username = $("#username").val();
+      var login_password = $("#userPassword").val();
+
+      Parse.User.logIn(login_username, login_password, {
+        success: function(user){
+          //alert("Log in Success!");
+		  window.location.href = "welcome.html";
+		  
+        }, error: function(user, error){
+          console.log("Log In Error: " + error.message);
+		  alert("Log In Error: " + error.message);
+        }
+      });
+    });
+	 
+	  
+    </script>
+</body>
+</html>
